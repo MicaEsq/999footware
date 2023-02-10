@@ -1,0 +1,29 @@
+
+{
+    "shoes": [
+        {
+            "id": 1,
+            "name": "Giannis Immortality",
+            "brand": "Nike",
+            "description": "This is shoes are awesomeee",
+            "image": "/images/shoes/shoe1.png",
+            "price": 150
+        },
+        {
+            "id": 2,
+            "name": "KD15",
+            "brand": "Nike",
+            "description": "This is shoes are awesomeee",
+            "image": "/images/shoes/shoe2.png",
+            "price": 170
+        },
+        {
+            "id": 3,
+            "name": "KD Trey 5 X",
+            "brand": "Nike",
+            "description": "This is shoes are awesomeee",
+            "image": "/images/shoes/shoe3.png",
+            "price": 95
+        }
+    ]
+}
