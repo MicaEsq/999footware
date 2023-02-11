@@ -1,13 +1,12 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
 //import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
 import Image from 'next/image';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
-
+import styles from '../styles/Button.module.css';
 
 
 export default function Home ({ products }) { 
@@ -18,10 +17,10 @@ export default function Home ({ products }) {
         <title>{siteTitle}</title>
       </Head>
       <section className="m-0 md:m-10">
-        <div className="items-center lg:flex lg:flex-row m-20">
+        <div className="items-center lg:flex lg:flex-row m-20 pb-20">
           <div className="lg:flex-col ">
             <div className="text-5xl font-extrabold">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-black-900">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f6f6f6] to-black-900">
                 Belive it or not...
               </span>
             </div>
@@ -31,8 +30,9 @@ export default function Home ({ products }) {
                 </span>
             </div>
           </div>
-          <div className="lg:flex-col ">
+          <div className="lg:flex-col">
               <Image
+                priority
                 src="/images/shoes/zapasinfondo.png"
                 className=""
                 height={600}
@@ -42,17 +42,17 @@ export default function Home ({ products }) {
           </div>
         </div>
       </section>
-      <section className="my-20 bg-black">
+      <section className="bg-[#050505]">
         <div className="py-10 px-20 text-5xl font-extrabold">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-600 to-yellow-600">
-              Explore
+              Latest releases
             </span>
         </div>
         <div className="flex flex-col md:flex-row my-10 mx-20 justify-between">
         {products.shoes.map((product) => (
-            <div key={product.id} className="flex-row my-2 mb-20 bg-gray-100 rounded-md md:flex-col md:mx-2">
+            <div key={product.id} className="flex-row my-2 mb-20 bg-[#f7f7f7] rounded-md md:flex-col md:mx-2">
               <div className="group relative m-3">
-                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none">
+                <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-[#f6f6f6] group-hover:opacity-75 lg:aspect-none">
                   <Image
                       src={product.image}
                       className=""
@@ -62,15 +62,18 @@ export default function Home ({ products }) {
                     />
                 </div>
                 <div className="mt-4 flex justify-between">
-                  <div className="flex-col">
-                    <h3 className="text-sm text-gray-700">
+                  <div className="flex-col ml-2 lg:ml-5">
+                    <h3 className="text-sm text-gray-800">
                         {product.name}
                     </h3>
                     <p className="mt-1 text-sm text-gray-500">{product.brand}</p>
                   </div>
-                  <div className="flex-col">
-                    <p className="text-sm font-medium text-gray-900">{"$" + product.price}</p>
-                    <PlusCircleIcon className="h-10 w-10 text-red-600"/>
+                  <div className="flex-col mr-2 lg:mr-5">
+                    <p className="text-sm text-right font-medium text-gray-900 mb-3 mr-1 lg:mr-1">{"$" + product.price}</p>
+                    <div className={styles.wrapper}>
+                      <div className={styles.buttonp}> +
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
