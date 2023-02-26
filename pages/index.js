@@ -16,7 +16,7 @@ export default function Home ({ products }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className="m-0 md:m-10">
+      <section className="h-[65vh] m-0 md:m-0">
         <div className="items-center lg:flex lg:flex-row m-20 pb-20">
           <div className="lg:flex-col ">
             <div className="text-5xl font-extrabold">
@@ -80,6 +80,10 @@ export default function Home ({ products }) {
             </div>
         ))}  
         </div>
+      </section>
+      <section>
+
+        
       </section>
       {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>

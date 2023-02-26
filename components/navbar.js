@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Disclosure, Menu } from "@headlessui/react";
 import Container from "./container";
+import { ShoppingBagIcon } from "@heroicons/react/24/solid";
+import { Bars3BottomRightIcon, Bars3Icon } from "@heroicons/react/24/outline";
 
 
 export default function Navbar(props) {
@@ -12,8 +14,8 @@ export default function Navbar(props) {
       href: "/"
     },
     {
-      label: "About",
-      href: "/about"
+      label: "Products",
+      href: "/products"
     },
     {
       label: "Contact",
@@ -39,31 +41,51 @@ export default function Navbar(props) {
                         height={200}
                         width={200}
                         alt=""
+                        title="999Footware"
                         />
                   </Link>
                 </div>
-                <div className="sm:m-8 md:m-0 flex flex-row justify-end w-full order-none">
+                <div className="m-5 lg:m-0 flex flex-row justify-end w-full items-center">
                     <Link href="/cart">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-                      </svg>
+                      <ShoppingBagIcon className="h-6 w-6 text-white transition ease-out delay-100 hover:text-yellow-500" title="Shopping bag"/>
+                    </Link>
+                    <Link href="/account" className="ml-5">
+                      <div className="group">
+                        <Image
+                          priority
+                          src="/images/icons/user1.png"
+                          className="absolute transition ease-out delay-100 hover:opacity-0"
+                          height={27}
+                          width={27}
+                          alt="My account"
+                          title="My account"
+                          />
+                        <Image
+                          priority
+                          src="/images/icons/user2.png"
+                          className=""
+                          height={27}
+                          width={27}
+                          alt="My account"
+                          title="My account"
+                          />
+                      </div>
                     </Link>
                 </div>
                 <div className="flex items-center mr-10">
                     <Disclosure.Button  
                       aria-label="Toggle Menu"
-                      className="md:hidden"
+                      className="lg:hidden"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
-                        </svg>
+                        <Bars3Icon className="absolute h-7 w-7 text-white hover:opacity-0" title="Menu"/>
+                        <Bars3BottomRightIcon className="h-7 w-7 text-white " title="Menu"/>
                     </Disclosure.Button>
                 </div>
             </div>
             <Disclosure.Panel>
-                <div className="flex flex-col items-center justify-start order-2 w-full md:hidden">
+                <div className="flex flex-col items-center justify-end col-end w-full lg:hidden">
                   {mobilemenu.map((item, index) => (
-                    <Link href={item.href} key={index} className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500">
+                    <Link href={item.href} key={index} className="px-5 py-1 text-md font-medium text-slate-100 dark:text-gray-400 hover:italic" style={{textDecoration:"none"}}>
                         {item.label}
                     </Link>
                   ))}
